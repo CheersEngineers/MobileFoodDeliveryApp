@@ -1,0 +1,30 @@
+# Python virtual environment
+.venv/
+venv/
+ENV/
+env/
+# Pytest cache & coverage
+.pytest_cache/
+htmlcov/
+coverage.xml
+.coverage
+
+# Editor / OS files
+.vscode/
+.idea/
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.swp
+Thumbs.db
+.DS_Store
+
+# OneDrive temp files (optional)
+~$*
+
+# Node (if present)
+node_modules/
+
+# Logs
+*.log
