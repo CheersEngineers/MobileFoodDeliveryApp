@@ -1,0 +1,255 @@
+(.venv) PS C:\Users\jonas\Github\Lopputehtävä\MobileFoodDeliveryApp> flake8 mobile_app tests
+mobile_app:0:1: E902 FileNotFoundError: [Errno 2] No such file or directory: 'mobile_app'
+tests\test_order_placement.py:2:80: E501 line too long (93 > 79 characters)
+tests\test_order_placement.py:5:1: E302 expected 2 blank lines, found 1
+tests\test_order_placement.py:8:1: W293 blank line contains whitespace
+tests\test_order_placement.py:17:1: W293 blank line contains whitespace
+tests\test_order_placement.py:30:1: W293 blank line contains whitespace
+tests\test_order_placement.py:38:80: E501 line too long (84 > 79 characters)
+tests\test_order_placement.py:39:1: W293 blank line contains whitespace
+tests\test_order_placement.py:50:1: W293 blank line contains whitespace
+tests\test_order_placement.py:62:80: E501 line too long (80 > 79 characters)
+tests\test_order_placement.py:63:1: W293 blank line contains whitespace
+tests\test_order_placement.py:68:1: W293 blank line contains whitespace
+tests\test_order_placement.py:77:1: W293 blank line contains whitespace
+tests\test_order_placement.py:86:1: W293 blank line contains whitespace
+tests\test_order_placement.py:89:1: W293 blank line contains whitespace
+tests\test_order_placement.py:99:1: W293 blank line contains whitespace
+tests\test_order_placement.py:103:1: W293 blank line contains whitespace
+tests\test_order_placement.py:105:80: E501 line too long (107 > 79 characters)
+tests\test_order_placement.py:115:80: E501 line too long (91 > 79 characters)
+tests\test_order_placement.py:116:1: W293 blank line contains whitespace
+tests\test_order_placement.py:118:80: E501 line too long (90 > 79 characters)
+tests\test_order_placement.py:124:80: E501 line too long (95 > 79 characters)
+tests\test_order_placement.py:129:1: W293 blank line contains whitespace
+tests\test_order_placement.py:131:80: E501 line too long (93 > 79 characters)
+tests\test_order_placement.py:133:80: E501 line too long (119 > 79 characters)
+tests\test_order_placement.py:139:80: E501 line too long (97 > 79 characters)
+tests\test_order_placement.py:140:1: W293 blank line contains whitespace
+tests\test_order_placement.py:143:80: E501 line too long (83 > 79 characters)
+tests\test_order_placement.py:144:80: E501 line too long (89 > 79 characters)
+tests\test_order_placement.py:148:80: E501 line too long (94 > 79 characters)
+tests\test_order_placement.py:149:1: W293 blank line contains whitespace
+tests\test_order_placement.py:153:80: E501 line too long (87 > 79 characters)
+tests\test_order_placement.py:161:80: E501 line too long (115 > 79 characters)
+tests\test_order_placement.py:162:1: W293 blank line contains whitespace
+tests\test_order_placement.py:164:80: E501 line too long (97 > 79 characters)
+tests\test_order_placement.py:172:80: E501 line too long (85 > 79 characters)
+tests\test_order_placement.py:177:80: E501 line too long (101 > 79 characters)
+tests\test_order_placement.py:178:1: W293 blank line contains whitespace
+tests\test_order_placement.py:180:80: E501 line too long (99 > 79 characters)
+tests\test_order_placement.py:192:1: W293 blank line contains whitespace
+tests\test_order_placement.py:195:1: W293 blank line contains whitespace
+tests\test_order_placement.py:197:80: E501 line too long (104 > 79 characters)
+tests\test_order_placement.py:203:80: E501 line too long (94 > 79 characters)
+tests\test_order_placement.py:223:1: W293 blank line contains whitespace
+tests\test_order_placement.py:226:1: W293 blank line contains whitespace
+tests\test_order_placement.py:239:1: W293 blank line contains whitespace
+tests\test_order_placement.py:246:1: W293 blank line contains whitespace
+tests\test_order_placement.py:257:1: W293 blank line contains whitespace
+tests\test_order_placement.py:259:80: E501 line too long (83 > 79 characters)
+tests\test_order_placement.py:264:1: W293 blank line contains whitespace
+tests\test_order_placement.py:273:1: W293 blank line contains whitespace
+tests\test_order_placement.py:276:1: W293 blank line contains whitespace
+tests\test_order_placement.py:290:80: E501 line too long (80 > 79 characters)
+tests\test_order_placement.py:292:80: E501 line too long (91 > 79 characters)
+tests\test_order_placement.py:295:80: E501 line too long (87 > 79 characters)
+tests\test_order_placement.py:342:80: E501 line too long (86 > 79 characters)
+tests\test_payment_processing.py:2:80: E501 line too long (90 > 79 characters)
+tests\test_payment_processing.py:5:1: E302 expected 2 blank lines, found 1
+tests\test_payment_processing.py:7:80: E501 line too long (110 > 79 characters)
+tests\test_payment_processing.py:8:1: W293 blank line contains whitespace
+tests\test_payment_processing.py:10:80: E501 line too long (107 > 79 characters)
+tests\test_payment_processing.py:14:80: E501 line too long (80 > 79 characters)
+tests\test_payment_processing.py:21:1: W293 blank line contains whitespace
+tests\test_payment_processing.py:23:80: E501 line too long (94 > 79 characters)
+tests\test_payment_processing.py:24:80: E501 line too long (113 > 79 characters)
+tests\test_payment_processing.py:25:1: W293 blank line contains whitespace
+tests\test_payment_processing.py:27:80: E501 line too long (96 > 79 characters)
+tests\test_payment_processing.py:28:1: W293 blank line contains whitespace
+tests\test_payment_processing.py:30:80: E501 line too long (101 > 79 characters)
+tests\test_payment_processing.py:46:80: E501 line too long (80 > 79 characters)
+tests\test_payment_processing.py:47:1: W293 blank line contains whitespace
+tests\test_payment_processing.py:49:80: E501 line too long (92 > 79 characters)
+tests\test_payment_processing.py:50:1: W293 blank line contains whitespace
+tests\test_payment_processing.py:55:9: F841 local variable 'expiry_date' is assigned to but never used        
+tests\test_payment_processing.py:58:80: E501 line too long (86 > 79 characters)
+tests\test_payment_processing.py:62:80: E501 line too long (94 > 79 characters)
+tests\test_payment_processing.py:67:80: E501 line too long (115 > 79 characters)
+tests\test_payment_processing.py:68:1: W293 blank line contains whitespace
+tests\test_payment_processing.py:72:80: E501 line too long (80 > 79 characters)
+tests\test_payment_processing.py:73:1: W293 blank line contains whitespace
+tests\test_payment_processing.py:75:80: E501 line too long (83 > 79 characters)
+tests\test_payment_processing.py:80:1: W293 blank line contains whitespace
+tests\test_payment_processing.py:82:80: E501 line too long (112 > 79 characters)
+tests\test_payment_processing.py:84:80: E501 line too long (85 > 79 characters)
+tests\test_payment_processing.py:96:80: E501 line too long (81 > 79 characters)
+tests\test_payment_processing.py:97:1: W293 blank line contains whitespace
+tests\test_payment_processing.py:102:1: W293 blank line contains whitespace
+tests\test_payment_processing.py:104:80: E501 line too long (90 > 79 characters)
+tests\test_payment_processing.py:107:80: E501 line too long (84 > 79 characters)
+tests\test_payment_processing.py:117:80: E501 line too long (106 > 79 characters)
+tests\test_payment_processing.py:121:80: E501 line too long (82 > 79 characters)
+tests\test_payment_processing.py:127:80: E501 line too long (105 > 79 characters)
+tests\test_payment_processing.py:129:80: E501 line too long (99 > 79 characters)
+tests\test_payment_processing.py:130:80: E501 line too long (96 > 79 characters)
+tests\test_payment_processing.py:135:80: E501 line too long (90 > 79 characters)
+tests\test_payment_processing.py:137:80: E501 line too long (99 > 79 characters)
+tests\test_payment_processing.py:139:80: E501 line too long (87 > 79 characters)
+tests\test_payment_processing.py:144:80: E501 line too long (106 > 79 characters)
+tests\test_payment_processing.py:146:80: E501 line too long (118 > 79 characters)
+tests\test_payment_processing.py:152:80: E501 line too long (102 > 79 characters)
+tests\test_payment_processing.py:155:80: E501 line too long (99 > 79 characters)
+tests\test_payment_processing.py:158:80: E501 line too long (116 > 79 characters)
+tests\test_payment_processing.py:159:80: E501 line too long (99 > 79 characters)
+tests\test_payment_processing.py:167:80: E501 line too long (128 > 79 characters)
+tests\test_payment_processing.py:170:80: E501 line too long (116 > 79 characters)
+tests\test_payment_processing.py:171:80: E501 line too long (99 > 79 characters)
+tests\test_payment_processing.py:176:80: E501 line too long (94 > 79 characters)
+tests\test_payment_processing.py:179:80: E501 line too long (99 > 79 characters)
+tests\test_payment_processing.py:182:80: E501 line too long (91 > 79 characters)
+tests\test_restaurant_browsing.py:3:80: E501 line too long (117 > 79 characters)
+tests\test_restaurant_browsing.py:4:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:6:80: E501 line too long (100 > 79 characters)
+tests\test_restaurant_browsing.py:11:80: E501 line too long (80 > 79 characters)
+tests\test_restaurant_browsing.py:12:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:14:80: E501 line too long (97 > 79 characters)
+tests\test_restaurant_browsing.py:21:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:23:80: E501 line too long (83 > 79 characters)
+tests\test_restaurant_browsing.py:24:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:28:77: W291 trailing whitespace
+tests\test_restaurant_browsing.py:34:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:37:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:41:77: W291 trailing whitespace
+tests\test_restaurant_browsing.py:47:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:49:80: E501 line too long (87 > 79 characters)
+tests\test_restaurant_browsing.py:50:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:52:80: E501 line too long (105 > 79 characters)
+tests\test_restaurant_browsing.py:54:77: W291 trailing whitespace
+tests\test_restaurant_browsing.py:57:80: E501 line too long (83 > 79 characters)
+tests\test_restaurant_browsing.py:59:80: E501 line too long (96 > 79 characters)
+tests\test_restaurant_browsing.py:60:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:64:80: E501 line too long (85 > 79 characters)
+tests\test_restaurant_browsing.py:65:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:72:60: W291 trailing whitespace
+tests\test_restaurant_browsing.py:73:80: E501 line too long (80 > 79 characters)
+tests\test_restaurant_browsing.py:76:60: W291 trailing whitespace
+tests\test_restaurant_browsing.py:80:60: W291 trailing whitespace
+tests\test_restaurant_browsing.py:89:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:91:80: E501 line too long (102 > 79 characters)
+tests\test_restaurant_browsing.py:92:80: E501 line too long (106 > 79 characters)
+tests\test_restaurant_browsing.py:97:80: E501 line too long (83 > 79 characters)
+tests\test_restaurant_browsing.py:100:80: E501 line too long (99 > 79 characters)
+tests\test_restaurant_browsing.py:100:100: W291 trailing whitespace
+tests\test_restaurant_browsing.py:102:80: E501 line too long (96 > 79 characters)
+tests\test_restaurant_browsing.py:102:97: W291 trailing whitespace
+tests\test_restaurant_browsing.py:104:80: E501 line too long (96 > 79 characters)
+tests\test_restaurant_browsing.py:104:97: W291 trailing whitespace
+tests\test_restaurant_browsing.py:106:80: E501 line too long (94 > 79 characters)
+tests\test_restaurant_browsing.py:106:95: W291 trailing whitespace
+tests\test_restaurant_browsing.py:108:80: E501 line too long (95 > 79 characters)
+tests\test_restaurant_browsing.py:108:96: W291 trailing whitespace
+tests\test_restaurant_browsing.py:115:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:117:80: E501 line too long (96 > 79 characters)
+tests\test_restaurant_browsing.py:124:80: E501 line too long (103 > 79 characters)
+tests\test_restaurant_browsing.py:125:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:127:80: E501 line too long (98 > 79 characters)
+tests\test_restaurant_browsing.py:132:80: E501 line too long (90 > 79 characters)
+tests\test_restaurant_browsing.py:133:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:135:80: E501 line too long (87 > 79 characters)
+tests\test_restaurant_browsing.py:141:80: E501 line too long (94 > 79 characters)
+tests\test_restaurant_browsing.py:142:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:147:1: W293 blank line contains whitespace
+tests\test_restaurant_browsing.py:149:80: E501 line too long (80 > 79 characters)
+tests\test_restaurant_browsing.py:151:80: E501 line too long (109 > 79 characters)
+tests\test_restaurant_browsing.py:156:1: E402 module level import not at top of file
+tests\test_restaurant_browsing.py:158:1: E302 expected 2 blank lines, found 1
+tests\test_restaurant_browsing.py:160:80: E501 line too long (88 > 79 characters)
+tests\test_restaurant_browsing.py:165:80: E501 line too long (98 > 79 characters)
+tests\test_restaurant_browsing.py:175:80: E501 line too long (82 > 79 characters)
+tests\test_restaurant_browsing.py:176:80: E501 line too long (141 > 79 characters)
+tests\test_restaurant_browsing.py:183:80: E501 line too long (91 > 79 characters)
+tests\test_restaurant_browsing.py:184:80: E501 line too long (147 > 79 characters)
+tests\test_restaurant_browsing.py:191:80: E501 line too long (95 > 79 characters)
+tests\test_restaurant_browsing.py:192:80: E501 line too long (143 > 79 characters)
+tests\test_restaurant_browsing.py:196:80: E501 line too long (104 > 79 characters)
+tests\test_restaurant_browsing.py:198:80: E501 line too long (110 > 79 characters)
+tests\test_restaurant_browsing.py:199:80: E501 line too long (93 > 79 characters)
+tests\test_restaurant_browsing.py:200:80: E501 line too long (103 > 79 characters)
+tests\test_user_registration.py:4:80: E501 line too long (91 > 79 characters)
+tests\test_user_registration.py:5:80: E501 line too long (126 > 79 characters)
+tests\test_user_registration.py:12:1: W293 blank line contains whitespace
+tests\test_user_registration.py:13:80: E501 line too long (141 > 79 characters)
+tests\test_user_registration.py:13:142: W291 trailing whitespace
+tests\test_user_registration.py:19:1: W293 blank line contains whitespace
+tests\test_user_registration.py:20:80: E501 line too long (144 > 79 characters)
+tests\test_user_registration.py:20:145: W291 trailing whitespace
+tests\test_user_registration.py:21:80: E501 line too long (102 > 79 characters)
+tests\test_user_registration.py:27:1: W293 blank line contains whitespace
+tests\test_user_registration.py:29:80: E501 line too long (81 > 79 characters)
+tests\test_user_registration.py:29:82: W291 trailing whitespace
+tests\test_user_registration.py:30:80: E501 line too long (122 > 79 characters)
+tests\test_user_registration.py:31:80: E501 line too long (95 > 79 characters)
+tests\test_user_registration.py:34:80: E501 line too long (118 > 79 characters)
+tests\test_user_registration.py:36:80: E501 line too long (118 > 79 characters)
+tests\test_user_registration.py:38:80: E501 line too long (125 > 79 characters)
+tests\test_user_registration.py:40:80: E501 line too long (130 > 79 characters)
+tests\test_user_registration.py:42:80: E501 line too long (83 > 79 characters)
+tests\test_user_registration.py:44:80: E501 line too long (95 > 79 characters)
+tests\test_user_registration.py:48:80: E501 line too long (80 > 79 characters)
+tests\test_user_registration.py:49:80: E501 line too long (101 > 79 characters)
+tests\test_user_registration.py:53:1: W293 blank line contains whitespace
+tests\test_user_registration.py:62:80: E501 line too long (134 > 79 characters)
+tests\test_user_registration.py:66:1: W293 blank line contains whitespace
+tests\test_user_registration.py:70:80: E501 line too long (111 > 79 characters)
+tests\test_user_registration.py:73:1: E305 expected 2 blank lines after class or function definition, found 1 
+tests\test_user_registration.py:73:1: E402 module level import not at top of file
+tests\test_user_registration.py:75:1: E302 expected 2 blank lines, found 1
+tests\test_user_registration.py:79:80: E501 line too long (90 > 79 characters)
+tests\test_user_registration.py:87:80: E501 line too long (103 > 79 characters)
+tests\test_user_registration.py:89:80: E501 line too long (93 > 79 characters)
+tests\test_user_registration.py:90:80: E501 line too long (86 > 79 characters)
+tests\test_user_registration.py:91:80: E501 line too long (126 > 79 characters)
+tests\test_user_registration.py:96:80: E501 line too long (104 > 79 characters)
+tests\test_user_registration.py:98:80: E501 line too long (92 > 79 characters)
+tests\test_user_registration.py:99:80: E501 line too long (95 > 79 characters)
+tests\test_user_registration.py:100:80: E501 line too long (103 > 79 characters)
+tests\test_user_registration.py:105:80: E501 line too long (102 > 79 characters)
+tests\test_user_registration.py:107:80: E501 line too long (93 > 79 characters)
+tests\test_user_registration.py:108:80: E501 line too long (99 > 79 characters)
+tests\test_user_registration.py:109:80: E501 line too long (105 > 79 characters)
+tests\test_user_registration.py:114:80: E501 line too long (94 > 79 characters)
+tests\test_user_registration.py:117:80: E501 line too long (97 > 79 characters)
+tests\test_user_registration.py:118:80: E501 line too long (112 > 79 characters)
+tests\test_user_registration.py:123:80: E501 line too long (110 > 79 characters)
+tests\test_user_registration.py:125:80: E501 line too long (104 > 79 characters)
+tests\test_user_registration.py:126:80: E501 line too long (93 > 79 characters)
+tests\test_user_registration.py:127:80: E501 line too long (116 > 79 characters)
+tests\test_user_registration.py:128:80: E501 line too long (107 > 79 characters)
+tests\test_user_registration.py:130:1: E305 expected 2 blank lines after class or function definition, found 1
+(.venv) PS C:\Users\jonas\Github\Lopputehtävä\MobileFoodDeliveryApp> pytest -q
+....................                                                                                   [100%]
+20 passed in 0.05s
+(.venv) PS C:\Users\jonas\Github\Lopputehtävä\MobileFoodDeliveryApp> coverage run -m pytest
+============================================ test session starts ============================================
+platform win32 -- Python 3.13.0, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\jonas\Github\Lopputehtävä\MobileFoodDeliveryApp
+plugins: mock-3.15.1
+collected 20 items                                                                                           
+
+tests\test_order_placement.py .....                                                                    [ 25%]
+tests\test_payment_processing.py ......                                                                [ 55%]
+tests\test_restaurant_browsing.py ....                                                                 [ 75%]
+tests\test_user_registration.py .....                                                                  [100%]
+
+============================================ 20 passed in 0.17s ============================================= 
+(.venv) PS C:\Users\jonas\Github\Lopputehtävä\MobileFoodDeliveryApp> coverage report -m
+Name                                Stmts   Miss  Cover   Missing
+-----------------------------------------------------------------
+tests\conftest.py                       0      0   100%
+tests\test_order_placement.py         110     17    85%   34, 73-76, 93-94, 107-111, 133, 182-183, 200, 232, 349
+tests\test_payment_processing.py       67      5    93%   39, 107-111, 187
+tests\test_restaurant_browsing.py      52      4    92%   137, 151-152, 204
+tests\test_user_registration.py        45      1    98%   131
+-----------------------------------------------------------------
+TOTAL                                 274     27    90%
