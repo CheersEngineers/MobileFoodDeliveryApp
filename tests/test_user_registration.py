@@ -1,3 +1,57 @@
+import unittest
+from User_Registration import UserRegistration
+
+class TestUserRegistrationInit(unittest.TestCase):
+    def test_users_dict_initialized_empty(self):
+        """
+        Test that the users dictionary is initialized as empty upon instantiation.
+        """
+        registration = UserRegistration()
+        self.assertIsInstance(registration.users, dict)
+        self.assertEqual(registration.users, {})
+
+if __name__ == '__main__':
+    unittest.main()
+
+#-----------------------------Testing 4.11.2025 ------------------------------------------------
+
+# Additional standalone tests for specific methods
+def test_is_valid_email_various():
+    r = UserRegistration()
+    assert r.is_valid_email("no-at-symbol") is False
+    assert r.is_valid_email("a@b") is False
+    assert r.is_valid_email("a@b.com") is True
+
+# Additional standalone tests for password strength
+def test_is_strong_password_boundaries():
+    r = UserRegistration()
+    assert r.is_strong_password("A1b2C3d") is False   # 7 chars
+    assert r.is_strong_password("A1b2C3d4") is True   # 8 chars
+    assert r.is_strong_password("12345678") is False  # no letter
+
+# Additional standalone test for duplicate email registration
+def test_register_duplicate_email():
+    r = UserRegistration()
+    r.register("user@example.com", "Password123", "Password123")
+    res = r.register("user@example.com", "Password123", "Password123")
+    assert res["success"] is False
+    assert res["error"] == "Email already registered"
+
+from User_Registration import UserRegistration
+
+def test_register_stores_user_and_marks_unconfirmed():
+    reg = UserRegistration()
+    res = reg.register("x@y.com", "Password1", "Password1")
+
+    assert res["success"] is True
+    assert "x@y.com" in reg.users
+    assert reg.users["x@y.com"]["confirmed"] is False
+
+
+#-----------------------------Testing 4.11.2025 ------------------------------------------------
+
+# Additional tests for edge cases
+
 class UserRegistration:
     def __init__(self):
         """
