@@ -253,3 +253,73 @@ tests\test_restaurant_browsing.py      52      4    92%   137, 151-152, 204
 tests\test_user_registration.py        45      1    98%   131
 -----------------------------------------------------------------
 TOTAL                                 274     27    90%
+
+
+-------------------------------------------------------------------------------------------------------------
+
+test_user_registration.py
+#-----------------------------Testing 4.11.2025 -------------------------------------------------------------
+
+# Additional standalone tests for specific methods
+def test_is_valid_email_various():
+    r = UserRegistration()
+    assert r.is_valid_email("no-at-symbol") is False
+    assert r.is_valid_email("a@b") is False
+    assert r.is_valid_email("a@b.com") is True
+
+# Additional standalone tests for password strength
+def test_is_strong_password_boundaries():
+    r = UserRegistration()
+    assert r.is_strong_password("A1b2C3d") is False   # 7 chars
+    assert r.is_strong_password("A1b2C3d4") is True   # 8 chars
+    assert r.is_strong_password("12345678") is False  # no letter
+
+# Additional standalone test for duplicate email registration
+def test_register_duplicate_email():
+    r = UserRegistration()
+    r.register("user@example.com", "Password123", "Password123")
+    res = r.register("user@example.com", "Password123", "Password123")
+    assert res["success"] is False
+    assert res["error"] == "Email already registered"
+
+from User_Registration import UserRegistration
+
+def test_register_stores_user_and_marks_unconfirmed():
+    reg = UserRegistration()
+    res = reg.register("x@y.com", "Password1", "Password1")
+
+    assert res["success"] is True
+    assert "x@y.com" in reg.users
+    assert reg.users["x@y.com"]["confirmed"] is False
+
+
+#-----------------------------Testing 4.11.2025 -------------------------------------------------------------
+Results
+
+(.venv) PS C:\Users\jonas\Github\Lopputehtävä\MobileFoodDeliveryApp> coverage run -m pytest  
+============================================= test session starts ==============================================
+platform win32 -- Python 3.13.0, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\jonas\Github\Lopputehtävä\MobileFoodDeliveryApp
+plugins: mock-3.15.1
+collected 25 items                                                                                              
+
+tests\test_order_placement.py .....                                                                       [ 20%]
+tests\test_payment_processing.py ......                                                                   [ 44%]
+tests\test_restaurant_browsing.py ....                                                                    [ 60%]
+tests\test_user_registration.py ..........                                                                [100%]
+
+============================================== 25 passed in 0.17s ============================================== 
+(.venv) PS C:\Users\jonas\Github\Lopputehtävä\MobileFoodDeliveryApp> coverage report -m      
+Name                                Stmts   Miss  Cover   Missing
+-----------------------------------------------------------------
+User_Registration.py                   45     31    31%   7, 33-44, 57, 70, 82, 89-91, 98-100, 107-109, 116-118, 125-128, 131
+__init__.py                             0      0   100%
+tests\conftest.py                       0      0   100%
+tests\test_order_placement.py         110     17    85%   34, 73-76, 93-94, 107-111, 133, 182-183, 200, 232, 349 
+tests\test_payment_processing.py       67      5    93%   39, 107-111, 187
+tests\test_restaurant_browsing.py      52      4    92%   137, 151-152, 204
+tests\test_user_registration.py        77      2    97%   14, 185
+-----------------------------------------------------------------
+TOTAL                                 351     59    83%
+
+#-----------------------------Testing 4.11.2025 -------------------------------------------------------------
