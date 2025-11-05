@@ -1,5 +1,6 @@
 import unittest
-from unittest import mock  # Import the mock module to simulate payment gateway responses.
+# Import the mock module to simulate payment gateway responses.
+from unittest import mock  
 
 # PaymentProcessing Class
 class PaymentProcessing:
@@ -7,7 +8,8 @@ class PaymentProcessing:
     The PaymentProcessing class handles validation and processing of payments using different payment methods.
     
     Attributes:
-        available_gateways (list): A list of supported payment gateways such as 'credit_card' and 'paypal'.
+        available_gateways (list): A list of supported payment gateways 
+        such as 'credit_card' and 'paypal'.
     """
     def __init__(self):
         """

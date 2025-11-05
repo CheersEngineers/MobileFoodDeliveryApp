@@ -1,6 +1,7 @@
 import unittest
-from Order_Placement import OrderPlacement
+from Order_Placement import Cart, OrderPlacement, RestaurantMenu
 from User_Registration import UserRegistration
+from stubs.RestaurantMenuStub import UserProfileStub
 
 class TestUserRegistrationInit(unittest.TestCase):
     def test_users_dict_initialized_empty(self):
@@ -16,16 +17,22 @@ if __name__ == '__main__':
 
 #-----------------------------Testing 4.11.2025 ------------------------------------------------
 
-class UserProfileStub:
-    def init(self, address="Test Address 42"):
-        self.delivery_address = address
-user_stub = UserProfileStub("123 Mockingbird Lane")
-order = OrderPlacement(cart, user_stub, menu_stub)
-checkout = order.proceed_to_checkout()
-self.assertEqual(checkout["delivery_address"], "123 Mockingbird Lane")
+def test_proceed_to_checkout_returns_address():
+    """
+    Test that the proceed_to_checkout method returns the correct delivery address from UserProfile.
+    """
+    cart = Cart()
+    menu_stub = RestaurantMenu()
+    user_stub = UserProfileStub("Test Address 42")
+    order = OrderPlacement(cart, user_stub, menu_stub)
+    checkout = order.proceed_to_checkout()
+    assert checkout["delivery_address"] == "Test Address 42"
 
 # Additional standalone tests for specific methods
 def test_is_valid_email_various():
+    """
+    Test various email formats for validity.
+    """
     r = UserRegistration()
     assert r.is_valid_email("no-at-symbol") is False
     assert r.is_valid_email("a@b") is False
@@ -33,6 +40,9 @@ def test_is_valid_email_various():
 
 # Additional standalone tests for password strength
 def test_is_strong_password_boundaries():
+    """
+    Test password strength at boundary conditions.
+    """
     r = UserRegistration()
     assert r.is_strong_password("A1b2C3d") is False   # 7 chars
     assert r.is_strong_password("A1b2C3d4") is True   # 8 chars
@@ -40,15 +50,19 @@ def test_is_strong_password_boundaries():
 
 # Additional standalone test for duplicate email registration
 def test_register_duplicate_email():
+    """
+    Test that registering with an already registered email fails.
+    """
     r = UserRegistration()
     r.register("user@example.com", "Password123", "Password123")
     res = r.register("user@example.com", "Password123", "Password123")
     assert res["success"] is False
     assert res["error"] == "Email already registered"
 
-from User_Registration import UserRegistration
-
 def test_register_stores_user_and_marks_unconfirmed():
+    """
+    Test that a successful registration stores the user and marks them as unconfirmed.
+    """
     reg = UserRegistration()
     res = reg.register("x@y.com", "Password1", "Password1")
 

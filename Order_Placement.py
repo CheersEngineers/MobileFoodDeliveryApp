@@ -74,7 +74,6 @@ class Cart:
                 # If the item is already in the cart, update its quantity.
                 item.update_quantity(item.quantity + quantity)
                 return f"Updated {name} quantity to {item.quantity}"
-        
         # If the item is not in the cart, add it as a new item.
         new_item = CartItem(name, price, quantity)
         self.items.append(new_item)
@@ -102,7 +101,8 @@ class Cart:
             new_quantity (int): The new quantity for the item.
         
         Returns:
-            str: A message indicating whether the item's quantity was updated or if the item was not found.
+            str: A message indicating whether the item's quantity was updated or if the item was
+            not found.
         """
         for item in self.items:
             if item.name == name:
@@ -130,7 +130,8 @@ class Cart:
         Returns:
             list: A list of dictionaries with each item's name, quantity, and subtotal price.
         """
-        return [{"name": item.name, "quantity": item.quantity, "subtotal": item.get_subtotal()} for item in self.items]
+        return [{"name": item.name, "quantity": item.quantity, 
+                 "subtotal": item.get_subtotal()} for item in self.items]
 
 
 # OrderPlacement Class
@@ -158,7 +159,8 @@ class OrderPlacement:
 
     def validate_order(self):
         """
-        Validates the order by checking if the cart is empty and if all items are available in the restaurant menu.
+        Validates the order by checking if the cart is empty and if all items 
+        are available in the restaurant menu.
         
         Returns:
             dict: A dictionary indicating whether the order is valid and an accompanying message.

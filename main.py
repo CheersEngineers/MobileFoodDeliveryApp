@@ -74,7 +74,8 @@ class Application(tk.Tk):
 class StartupFrame(tk.Frame):
     def __init__(self, master):
         super().__init__(master)
-        tk.Label(self, text="Welcome to the Mobile Food Delivery App", font=("Arial", 16)).pack(pady=30)
+        tk.Label(self, text="Welcome to the Mobile Food Delivery App", 
+                 font=("Arial", 16)).pack(pady=30)
 
         tk.Button(self, text="Register", command=self.go_to_register, width=20).pack(pady=10)
         tk.Button(self, text="Login", command=self.go_to_login, width=20).pack(pady=10)
@@ -193,10 +194,14 @@ class MainAppFrame(tk.Frame):
         # Buttons for actions
         action_frame = tk.Frame(self)
         action_frame.pack(pady=5)
-        tk.Button(action_frame, text="View All Restaurants", command=self.view_all_restaurants).pack(side="left", padx=5)
-        tk.Button(action_frame, text="Add Item to Cart", command=self.add_item_to_cart).pack(side="left", padx=5)
-        tk.Button(action_frame, text="View Cart", command=self.view_cart).pack(side="left", padx=5)
-        tk.Button(action_frame, text="Checkout", command=self.checkout).pack(side="left", padx=5)
+        tk.Button(action_frame, text="View All Restaurants", 
+                  command=self.view_all_restaurants).pack(side="left", padx=5)
+        tk.Button(action_frame, text="Add Item to Cart", 
+                  command=self.add_item_to_cart).pack(side="left", padx=5)
+        tk.Button(action_frame, text="View Cart", 
+                  command=self.view_cart).pack(side="left", padx=5)
+        tk.Button(action_frame, text="Checkout", 
+                  command=self.checkout).pack(side="left", padx=5)
 
     def search_restaurants(self):
         self.results_tree.delete(*self.results_tree.get_children())
@@ -283,7 +288,8 @@ class CheckoutPopup(tk.Toplevel):
         self.order_placement = order_placement
 
         order_data = order_placement.proceed_to_checkout()
-        tk.Label(self, text="Review your order:", font=("Arial", 12)).pack(pady=10)
+        tk.Label(self, text="Review your order:", 
+                 font=("Arial", 12)).pack(pady=10)
 
         # Show items
         for item in order_data["items"]:
