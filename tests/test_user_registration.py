@@ -1,4 +1,5 @@
 import unittest
+from Order_Placement import OrderPlacement
 from User_Registration import UserRegistration
 
 class TestUserRegistrationInit(unittest.TestCase):
@@ -14,6 +15,14 @@ if __name__ == '__main__':
     unittest.main()
 
 #-----------------------------Testing 4.11.2025 ------------------------------------------------
+
+class UserProfileStub:
+    def init(self, address="Test Address 42"):
+        self.delivery_address = address
+user_stub = UserProfileStub("123 Mockingbird Lane")
+order = OrderPlacement(cart, user_stub, menu_stub)
+checkout = order.proceed_to_checkout()
+self.assertEqual(checkout["delivery_address"], "123 Mockingbird Lane")
 
 # Additional standalone tests for specific methods
 def test_is_valid_email_various():
