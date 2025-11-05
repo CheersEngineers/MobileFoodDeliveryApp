@@ -73,6 +73,11 @@ class TestPaymentProcessing(unittest.TestCase):
         result = self.payment_processing.process_payment(order, "bitcoin", payment_details)
         self.assertIn("Error: Invalid payment method", result)
 
+    def test_validate_paypal_success(self):
+        payment_details = {"email": "user@example.com"}
+        result = self.payment_processing.validate_payment_method("paypal", payment_details)
+        self.assertTrue(result)
+
 
 if __name__ == "__main__":
     unittest.main()  # Run the unit tests.
