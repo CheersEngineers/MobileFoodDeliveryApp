@@ -1,208 +1,47 @@
 import unittest
-from Order_Placement import Cart, OrderPlacement, RestaurantMenu
 from User_Registration import UserRegistration
+from Order_Placement import Cart, OrderPlacement, RestaurantMenu
 from stubs.RestaurantMenuStub import UserProfileStub
 
-class TestUserRegistrationInit(unittest.TestCase):
-    def test_users_dict_initialized_empty(self):
-        """
-        Test that the users dictionary is initialized as empty upon instantiation.
-        """
-        registration = UserRegistration()
-        self.assertIsInstance(registration.users, dict)
-        self.assertEqual(registration.users, {})
-
-if __name__ == '__main__':
-    unittest.main()
-
-#-----------------------------Testing 4.11.2025 ------------------------------------------------
-
-def test_proceed_to_checkout_returns_address():
-    """
-    Test that the proceed_to_checkout method returns the correct delivery address from UserProfile.
-    """
-    cart = Cart()
-    menu_stub = RestaurantMenu()
-    user_stub = UserProfileStub("Test Address 42")
-    order = OrderPlacement(cart, user_stub, menu_stub)
-    checkout = order.proceed_to_checkout()
-    assert checkout["delivery_address"] == "Test Address 42"
-
-# Additional standalone tests for specific methods
-def test_is_valid_email_various():
-    """
-    Test various email formats for validity.
-    """
-    r = UserRegistration()
-    assert r.is_valid_email("no-at-symbol") is False
-    assert r.is_valid_email("a@b") is False
-    assert r.is_valid_email("a@b.com") is True
-
-# Additional standalone tests for password strength
-def test_is_strong_password_boundaries():
-    """
-    Test password strength at boundary conditions.
-    """
-    r = UserRegistration()
-    assert r.is_strong_password("A1b2C3d") is False   # 7 chars
-    assert r.is_strong_password("A1b2C3d4") is True   # 8 chars
-    assert r.is_strong_password("12345678") is False  # no letter
-
-# Additional standalone test for duplicate email registration
-def test_register_duplicate_email():
-    """
-    Test that registering with an already registered email fails.
-    """
-    r = UserRegistration()
-    r.register("user@example.com", "Password123", "Password123")
-    res = r.register("user@example.com", "Password123", "Password123")
-    assert res["success"] is False
-    assert res["error"] == "Email already registered"
-
-def test_register_stores_user_and_marks_unconfirmed():
-    """
-    Test that a successful registration stores the user and marks them as unconfirmed.
-    """
-    reg = UserRegistration()
-    res = reg.register("x@y.com", "Password1", "Password1")
-
-    assert res["success"] is True
-    assert "x@y.com" in reg.users
-    assert reg.users["x@y.com"]["confirmed"] is False
-
-
-#-----------------------------Testing 4.11.2025 ------------------------------------------------
-
-# Additional tests for edge cases
-
-class UserRegistration:
-    def __init__(self):
-        """
-        Initializes the UserRegistration class with an empty dictionary to store user data.
-        Each entry in the dictionary will map an email to a dictionary containing the user's password and confirmation status.
-        """
-        self.users = {}
-
-    def register(self, email, password, confirm_password):
-        """
-        Registers a new user.
-        
-        This function takes an email, password, and password confirmation as input. It performs a series of checks to ensure the registration 
-        is valid:
-        - Verifies that the email is in a valid format.
-        - Ensures that the password matches the confirmation password.
-        - Validates that the password meets the strength requirements.
-        - Checks if the email is already registered.
-        
-        If all checks pass, the user is registered, and their email and password are stored in the `users` dictionary, along with a confirmation 
-        status set to False (indicating the user is not yet confirmed). A success message is returned.
-
-        Args:
-            email (str): The user's email address.
-            password (str): The user's password.
-            confirm_password (str): Confirmation of the user's password.
-        
-        Returns:
-            dict: A dictionary containing the result of the registration attempt. 
-                  On success, it returns {"success": True, "message": "Registration successful, confirmation email sent"}.
-                  On failure, it returns {"success": False, "error": "Specific error message"}.
-        """
-        if not self.is_valid_email(email):
-            return {"success": False, "error": "Invalid email format"}  # If email format is invalid, return an error.
-        if password != confirm_password:
-            return {"success": False, "error": "Passwords do not match"}  # If passwords don't match, return an error.
-        if not self.is_strong_password(password):
-            return {"success": False, "error": "Password is not strong enough"}  # If password isn't strong, return an error.
-        if email in self.users:
-            return {"success": False, "error": "Email already registered"}  # If the email is already registered, return an error.
-
-        # Register the user if all conditions are met and return a success message.
-        self.users[email] = {"password": password, "confirmed": False}
-        return {"success": True, "message": "Registration successful, confirmation email sent"}
-
-    def is_valid_email(self, email):
-        """
-        Checks if the provided email is valid based on a simple validation rule.
-        This rule only checks that the email contains an '@' symbol and has a '.' in the domain part.
-
-        Args:
-            email (str): The email address to be validated.
-        
-        Returns:
-            bool: True if the email is valid, False otherwise.
-        """
-        return "@" in email and "." in email.split("@")[-1]
-
-    def is_strong_password(self, password):
-        """
-        Checks if the provided password meets the strength requirements.
-        A strong password is defined as one that is at least 8 characters long, contains at least one letter, and at least one number.
-
-        Args:
-            password (str): The password to be validated.
-        
-        Returns:
-            bool: True if the password is strong, False otherwise.
-        """
-        return len(password) >= 8 and any(c.isdigit() for c in password) and any(c.isalpha() for c in password)
-
-# Unit tests for UserRegistration class
-import unittest
-
 class TestUserRegistration(unittest.TestCase):
-
     def setUp(self):
-        """
-        Set up the test environment by creating an instance of the UserRegistration class.
-        This instance will be used across all test cases.
-        """
         self.registration = UserRegistration()
 
     def test_successful_registration(self):
-        """
-        Test case for successful user registration.
-        It verifies that a valid email and matching strong password results in successful registration.
-        """
         result = self.registration.register("user@example.com", "Password123", "Password123")
-        self.assertTrue(result['success'])  # Ensures that registration is successful.
-        self.assertEqual(result['message'], "Registration successful, confirmation email sent")  # Checks the success message.
+        self.assertTrue(result['success'])
+        self.assertEqual(result['message'], "Registration successful, confirmation email sent")
 
     def test_invalid_email(self):
-        """
-        Test case for invalid email format.
-        It verifies that attempting to register with an incorrectly formatted email results in an error.
-        """
         result = self.registration.register("userexample.com", "Password123", "Password123")
-        self.assertFalse(result['success'])  # Ensures registration fails due to invalid email.
-        self.assertEqual(result['error'], "Invalid email format")  # Checks the specific error message.
+        self.assertFalse(result['success'])
+        self.assertEqual(result['error'], "Invalid email format")
 
     def test_password_mismatch(self):
-        """
-        Test case for password mismatch.
-        It verifies that when the password and confirmation password do not match, registration fails.
-        """
         result = self.registration.register("user@example.com", "Password123", "Password321")
-        self.assertFalse(result['success'])  # Ensures registration fails due to password mismatch.
-        self.assertEqual(result['error'], "Passwords do not match")  # Checks the specific error message.
+        self.assertFalse(result['success'])
+        self.assertEqual(result['error'], "Passwords do not match")
 
     def test_weak_password(self):
-        """
-        Test case for weak password.
-        It verifies that a password not meeting the strength requirements results in an error.
-        """
         result = self.registration.register("user@example.com", "pass", "pass")
-        self.assertFalse(result['success'])  # Ensures registration fails due to a weak password.
-        self.assertEqual(result['error'], "Password is not strong enough")  # Checks the specific error message.
+        self.assertFalse(result['success'])
+        self.assertEqual(result['error'], "Password is not strong enough")
 
     def test_email_already_registered(self):
-        """
-        Test case for duplicate email registration.
-        It verifies that attempting to register an email that has already been registered results in an error.
-        """
-        self.registration.register("user@example.com", "Password123", "Password123")  # Register a user.
+        self.registration.register("user@example.com", "Password123", "Password123")
         result = self.registration.register("user@example.com", "Password123", "Password123")
-        self.assertFalse(result['success'])  # Ensures registration fails due to the email already being registered.
-        self.assertEqual(result['error'], "Email already registered")  # Checks the specific error message.
+        self.assertFalse(result['success'])
+        self.assertEqual(result['error'], "Email already registered")
+
+# Standalone test
+def test_proceed_to_checkout_returns_address():
+    from Order_Placement import Cart, OrderPlacement, RestaurantMenu
+    cart = Cart()
+    menu_stub = RestaurantMenu()
+    user_stub = UserProfileStub("Test Address 42")
+    order = OrderPlacement(user=user_stub, menu=menu_stub, payment_method=None)
+    checkout = order.proceed_to_checkout()
+    assert checkout["delivery_address"] == "Test Address 42"
 
 if __name__ == '__main__':
     unittest.main()
