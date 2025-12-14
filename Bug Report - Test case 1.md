@@ -1,4 +1,4 @@
-**Test case 1 Search restaurants by filters**
+# Test case 1 Search restaurants by filters
 
 [UAT][TC-A1] Search returns only 1 matching restaurant instead of expected 2
 
