@@ -1,4 +1,3 @@
-# tests/unit/test_restaurant_search_monkeypatch.py
 """
 Alternative style using monkeypatch to replace the browsing.search_by_filters method.
 This verifies the forwarding of arguments and return value handling.
@@ -17,12 +16,10 @@ def test_search_forwards_args_to_search_by_filters(monkeypatch):
         }
         return [{"name": "Stub"}]
 
-    # Create a RestaurantSearch with a minimal browsing object
     class BrowsingHolder:
         pass
 
     holder = BrowsingHolder()
-    # monkeypatch the attribute even if it does not exist yet
     monkeypatch.setattr(holder, "search_by_filters", fake_search_by_filters, raising=False)
 
     rs = RestaurantSearch(browsing=holder)

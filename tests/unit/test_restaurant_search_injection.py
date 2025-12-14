@@ -1,4 +1,3 @@
-# tests/unit/test_restaurant_search_injection.py
 """
 Bottom-up tests for RestaurantSearch.search_restaurants.
 We inject a FakeBrowsing object into RestaurantSearch so no real DB is used.
@@ -12,7 +11,6 @@ class FakeBrowsing:
         self.last_called_with = None
 
     def search_by_filters(self, cuisine_type=None, location=None, min_rating=None):
-        # record the call so tests can assert forwarded args
         self.last_called_with = {
             "cuisine_type": cuisine_type,
             "location": location,
@@ -24,14 +22,11 @@ def test_search_for_cuisine_and_rating_returns_results():
     fake_results = [{"name": "Sushi House", "cuisine": "Japanese", "location": "Midtown", "rating": 4.8}]
     fake = FakeBrowsing(return_value=fake_results)
 
-    # RestaurantSearch expects a browsing instance in its constructor
     rs = RestaurantSearch(browsing=fake)
 
     res = rs.search_restaurants(cuisine="Japanese", location=None, rating=4.0)
 
-    # returns the fake results unchanged
     assert res == fake_results
-    # underlying search_by_filters received the expected mapped args
     assert fake.last_called_with == {"cuisine_type": "Japanese", "location": None, "min_rating": 4.0}
 
 def test_search_returns_empty_list_when_no_matches():

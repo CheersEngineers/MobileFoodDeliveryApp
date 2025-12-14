@@ -1,4 +1,3 @@
-# tests/unit/test_restaurant_browsing_direct.py
 """
 Direct bottom-up tests for RestaurantBrowsing using a DummyDB.
 These tests instantiate RestaurantBrowsing(database=DummyDB()) so no real DB or I/O is used.
@@ -18,7 +17,6 @@ class DummyDB:
         ]
 
     def get_restaurants(self):
-        # Return a shallow copy so tests can mutate safely if needed
         return list(self._restaurants)
 
 def test_search_by_cuisine_returns_only_matching_cuisine():
@@ -45,7 +43,6 @@ def test_search_by_rating_filters_minimum_rating():
 
     results = rb.search_by_rating(4.2)
     assert isinstance(results, list)
-    # expected: Sushi House (4.8), Italian Bistro (4.5), Taco Town (4.2)
     expected_names = {"Sushi House", "Italian Bistro", "Taco Town"}
     assert set(r["name"] for r in results) == expected_names
 
@@ -53,7 +50,6 @@ def test_search_by_filters_combines_all_filters():
     db = DummyDB()
     rb = RestaurantBrowsing(database=db)
 
-    # cuisine Italian, location Downtown, min rating 4.0 -> only Italian Bistro
     results = rb.search_by_filters(cuisine_type="Italian", location="Downtown", min_rating=4.0)
     assert isinstance(results, list)
     assert len(results) == 1
@@ -63,7 +59,6 @@ def test_search_by_filters_handles_missing_filters_gracefully():
     db = DummyDB()
     rb = RestaurantBrowsing(database=db)
 
-    # no filters -> returns all restaurants
     results = rb.search_by_filters()
     assert isinstance(results, list)
     assert len(results) == len(db.get_restaurants())
