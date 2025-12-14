@@ -1,0 +1,2 @@
+timestamp,query_cuisine,query_location,query_rating,status,elapsed_ms,result_count
+2025-12-14T12:45:45.679020+00:00,Japanese,Downtown,4.0,OK,0.008,0
