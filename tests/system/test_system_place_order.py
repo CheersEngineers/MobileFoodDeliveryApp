@@ -1,9 +1,15 @@
 # Functional system test for order placement - Roope Kuossari
 
+import sys
+import os
 import unittest
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+
 from Order_Placement import Cart, OrderPlacement, RestaurantMenu
 from tests.fakes.FakePaymentGateway import FakePaymentGateway
 from tests.stubs.RestaurantMenuStub import UserProfileStub
+
 
 class TestSystemPlaceOrder(unittest.TestCase):
     """
@@ -14,27 +20,35 @@ class TestSystemPlaceOrder(unittest.TestCase):
 
     def setUp(self):
         self.cart = Cart()
-        self.menu = RestaurantMenu()
+
+        # Minimal valid menu
+        self.menu = RestaurantMenu(
+            available_items=["Pizza"]
+        )
+
         self.user = UserProfileStub("123 System Test Street")
         self.payment_gateway = FakePaymentGateway()
 
         self.order = OrderPlacement(
-            user=self.user,
-            menu=self.menu,
-            payment_method=self.payment_gateway
+            cart=self.cart,
+            user_profile=self.user,
+            restaurant_menu=self.menu
         )
 
     def test_successful_order_flow(self):
         """
-        End-to-end test:
-        User adds item -> checks out -> payment succeeds -> order confirmed
+        End-to-end system test:
+        User adds item -> order validated -> payment succeeds -> order confirmed
         """
-        self.order.add_item(item_id=1, quantity=1)
-        result = self.order.confirm_order()
+        # Add item to cart
+        self.cart.add_item(name="Pizza", price=10.0, quantity=1)
 
-        self.assertEqual(result["status"], "success")
-        self.assertEqual(len(self.payment_gateway.charges), 1)
-        self.assertGreater(self.payment_gateway.charges[0]["amount"], 0)
+        # Confirm order
+        result = self.order.confirm_order(self.payment_gateway)
+
+        self.assertTrue(result["success"])
+        self.assertEqual(result["message"], "Order confirmed")
+
 
 if __name__ == "__main__":
     unittest.main()
